@@ -51,7 +51,9 @@ class WordleTest : StringSpec({
         val guess = "apple"
         val target = "angle"
         evaluateGuess(guess, target) shouldBe listOf(1, 0, 0, 1, 1)
-        evaluateGuess("stone", "stone") shouldBe listOf(1,1,1,1,1)
-        evaluateGuess("crane", "pilot") shouldBe listOf(0,0,0,0,0)
+
+        evaluateGuess("stone", "stone") shouldBe listOf(1, 1, 1, 1, 1)
+
+        evaluateGuess("crane", "pilot") shouldBe listOf(0, 0, 0, 0, 0)
     }
 })

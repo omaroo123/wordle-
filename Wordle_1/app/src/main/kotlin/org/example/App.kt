@@ -1,3 +1,5 @@
+package org.example
+
 fun main() {
     val words = try {
         readWordList("data/words.txt")
@@ -20,10 +22,11 @@ fun main() {
         displayGuess(guess, matches)
 
         if (matches.all { it == 1 }) {
-            println("🎉 Correct! You guessed the word \"$target\" in $attempt attempt(s).")
+            println("Correct! You guessed the word \"$target\" in $attempt attempt(s).")
             return
         }
     }
 
-    println("Out of attempts! The word was \"$target\". Better luck next time.")
+    println("Out of attempts! The word was \"$target\".")
 }
+

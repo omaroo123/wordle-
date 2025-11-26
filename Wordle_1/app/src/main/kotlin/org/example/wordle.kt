@@ -1,3 +1,5 @@
+package org.example
+
 import java.io.File
 import kotlin.random.Random
 
@@ -22,7 +24,6 @@ fun pickRandomWord(words: MutableList<String>): String {
 fun obtainGuess(attempt: Int): String {
     while (true) {
         print("Attempt $attempt: ")
-        System.out.flush()
         val input = readLine()?.trim().orEmpty()
         if (isValid(input)) return input.lowercase()
         println("Invalid word. Please enter a 5-letter word consisting of letters A–Z.")
@@ -30,13 +31,12 @@ fun obtainGuess(attempt: Int): String {
 }
 
 fun evaluateGuess(guess: String, target: String): List<Int> {
-    require(isValid(guess)) { "Guess must be a valid 5-letter word." }
-    require(isValid(target)) { "Target must be a valid 5-letter word." }
-    return (0 until 5).map { i -> if (guess[i].lowercaseChar() == target[i].lowercaseChar()) 1 else 0 }
+    return (0 until 5).map { i ->
+        if (guess[i].lowercaseChar() == target[i].lowercaseChar()) 1 else 0
+    }
 }
 
 fun displayGuess(guess: String, matches: List<Int>) {
-    require(matches.size == 5) { "Matches must have length 5." }
     val out = buildString {
         for (i in 0 until 5) {
             append(if (matches[i] == 1) guess[i].lowercaseChar() else '?')

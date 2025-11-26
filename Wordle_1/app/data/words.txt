@@ -1,0 +1,10 @@
+apple
+crane
+stone
+flame
+brick
+plane
+light
+chair
+grass
+sword
